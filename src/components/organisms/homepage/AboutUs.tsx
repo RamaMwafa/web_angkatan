@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 const AboutUs = () => {
   return (
     <section id="about-us" className="w-full bg-blue-cs-40 text-neutral-cs-10">
@@ -40,3 +41,12 @@ const AboutUs = () => {
 }
 
 export default AboutUs
+=======
+import React from 'react'
+
+const AboutUs = () => {
+  return <div className="min-h-screen w-full">AboutUs</div>
+}
+
+export default AboutUs
+>>>>>>> dev

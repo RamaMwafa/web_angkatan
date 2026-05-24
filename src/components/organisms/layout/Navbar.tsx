@@ -21,7 +21,11 @@ const Navbar = () => {
   }
 
   return (
+<<<<<<< HEAD
     <div className="bg-blue-cs-40/85 fixed top-4 left-1/2 z-50 flex w-[calc(100%-3rem)] -translate-x-1/2 items-center justify-between rounded-[20px] px-12 py-4 text-white backdrop-blur-xs">
+=======
+    <div className="bg-blue-cs-40/85 fixed top-4 left-1/2 flex w-[calc(100%-3rem)] -translate-x-1/2 items-center justify-between rounded-[20px] px-12 py-4 text-white backdrop-blur-xs">
+>>>>>>> dev
       <LogoWithTextHorizontal alt="Evastra - Teknologi Informasi ITS 2025" width={186} height={30} />
       <div className="flex">
         {navItems.map((item) => (
