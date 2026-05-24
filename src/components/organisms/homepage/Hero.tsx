@@ -48,6 +48,7 @@ const Hero = () => {
             width={514}
             height={393}
             className="h-auto w-[220px] sm:w-[320px] lg:w-[514px]"
+            loading="eager"
             fetchPriority="high"
             sizes="(max-width: 639px) 220px, (max-width: 1023px) 320px, 514px"
           />
