@@ -1,6 +1,7 @@
 'use client'
 
 import React, { useEffect, useRef, useCallback, useState } from 'react'
+import { createPortal } from 'react-dom'
 
 import Image from 'next/image'
 
@@ -196,9 +197,9 @@ const MemberPopup = ({ isOpen, onClose }: MemberPopupProps) => {
     return null
   }
 
-  return (
+  return createPortal(
     // PADA BAGIAN INI KAMU BOLEH MENGUBAH STYLE SESUKA HATI KAMU, TAPI JANGAN UBAH STRUKTUR DAN FUNGSI DARI KODE INI AGAR FUNGSI POPUP TETAP BERJALAN DENGAN BAIK
-    <div className="fixed inset-0 z-[100] flex items-start justify-center overflow-y-auto px-4 pt-28 pb-8 sm:pt-32">
+    <div className="fixed inset-0 z-[100] flex items-start justify-center overflow-y-auto px-4">
       <button
         type="button"
         aria-label="Close member detail"
@@ -210,7 +211,7 @@ const MemberPopup = ({ isOpen, onClose }: MemberPopupProps) => {
         {/* Invisible backplate to catch mouse events even when the card rotates away from the cursor */}
         <div className="absolute inset-0 z-0" style={{ background: 'rgba(0,0,0,0.001)' }} />
 
-        <div ref={cardRef} className="border-neutral-cs-10 bg-blue-cs-40 member-popup-font card-breathe card-tilt relative z-10 w-full max-h-[calc(100vh-9rem)] overflow-y-auto overflow-x-hidden rounded-2xl border-2 p-6 text-white sm:max-h-[calc(100vh-10rem)] sm:p-8">
+        <div ref={cardRef} className="border-neutral-cs-10 bg-blue-cs-40 member-popup-font card-breathe card-tilt relative z-10 w-full max-h-[100dvh] overflow-y-auto overflow-x-hidden rounded-2xl border-2 p-6 text-white sm:p-8">
           {/* Cursor glow overlay */}
           <div ref={glowRef} className="pointer-events-none absolute inset-0 z-0 rounded-2xl" />
 
@@ -444,7 +445,8 @@ const MemberPopup = ({ isOpen, onClose }: MemberPopupProps) => {
           </div>
         </div>
       </div>
-    </div>
+    </div>,
+    document.body
   )
 }
 
