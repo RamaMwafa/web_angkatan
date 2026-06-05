@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 
 import Image from 'next/image'
 
@@ -26,7 +26,7 @@ type MemberPopupProps = {
 
 const MemberPopup = ({ isOpen, onClose }: MemberPopupProps) => {
   // TAMBAHKAN STATE INI:
-  const [isFlipped, setIsFlipped] = React.useState(false)
+  const [isFlipped, setIsFlipped] = useState(false)
 
   useEffect(() => {
     if (!isOpen) {
@@ -70,12 +70,14 @@ const MemberPopup = ({ isOpen, onClose }: MemberPopupProps) => {
           KOTAK LUAR POPUP: Menentukan tinggi-lebar kartu & memotong ujung GIF
           (z-10 diubah ke relative, overflow-y-auto DIHAPUS dari sini)
          ========================================================= */}
-      <div className="border-neutral-cs-10 relative z-10 max-h-[100dvh] w-full max-w-[720px] animate-[member-popup-show_200ms_ease-out] overflow-hidden rounded-2xl border-2 text-white shadow-xl">
+      <div className="border-neutral-cs-10 relative z-10 h-[100dvh] max-h-[100dvh] w-full max-w-[720px] animate-[member-popup-show_200ms_ease-out] overflow-hidden rounded-2xl border-2 text-white shadow-xl">
         {/* BACKGROUND GIF: Sekarang pakai 'absolute', dia otomatis stay karena box luarnya tidak bisa di-scroll */}
         <Image
-          src={ZetaGif.src}
+          src={ZetaGif}
           alt="Vestia Zeta Background"
-          className="pointer-events-none absolute inset-0 -z-10 h-full w-full object-cover object-center"
+          fill
+          unoptimized
+          className="pointer-events-none absolute inset-0 -z-10 object-cover object-center"
         />
         <button
           type="button"
@@ -110,9 +112,11 @@ const MemberPopup = ({ isOpen, onClose }: MemberPopupProps) => {
             {/* Foto profile asli */}
             <Image src={ProfileImage} alt="Profile Image" className="h-120 w-full object-cover object-center" />
             {/* Lapisan overlay dengan efek blur dan gambar Cinemeow */}
-            <img
-              src={CinemeowImg.src}
+            <Image
+              src={CinemeowImg}
               alt="Absolute Cinemeow Overlay"
+              fill
+              sizes="(max-width: 768px) 100vw, 720px"
               className={`${isFlipped ? 'opacity-0' : 'opacity-100'} pointer-events-none absolute inset-0 h-full w-full object-cover object-center transition-opacity duration-500 ease-in-out group-hover:opacity-0`}
             />
           </div>
