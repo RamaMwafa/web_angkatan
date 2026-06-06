@@ -84,6 +84,10 @@ const MemberPopup = ({ isOpen, onClose }: MemberPopupProps) => {
           90%  { opacity: 0.8; }
           100% { transform: translateY(110vh) rotate(360deg); opacity: 0; }
         }
+        @keyframes coqTwinkle {
+          0%, 100% { opacity: 1; transform: scale(1); }
+          50%       { opacity: 0.3; transform: scale(0.7); }
+        }
       `}</style>
 
       <div
@@ -98,53 +102,95 @@ const MemberPopup = ({ isOpen, onClose }: MemberPopupProps) => {
           style={{ background: 'transparent', border: 'none', cursor: 'pointer' }}
         />
 
-        <div className="border-neutral-cs-10 bg-blue-cs-40 relative z-10 max-h-[100dvh] w-full max-w-[720px] animate-[member-popup-show_200ms_ease-out] overflow-y-auto rounded-2xl border-2 p-6 text-white shadow-xl sm:p-8">
+        <div
+          className="relative z-10 max-h-[100dvh] w-full max-w-[720px] animate-[member-popup-show_200ms_ease-out] overflow-y-auto rounded-2xl p-6 shadow-xl sm:p-8"
+          style={{
+            background: 'linear-gradient(160deg, #bde0fe 0%, #ffd6e7 60%, #ffb3cc 100%)',
+            border: '2px solid #90c8f5',
+            color: '#5a3045',
+          }}
+        >
           <button
             type="button"
             aria-label="Close member detail"
             onClick={onClose}
-            className="border-neutral-cs-10 hover:bg-neutral-cs-10/10 absolute top-4 right-4 flex h-9 w-9 items-center justify-center rounded-full border text-xl leading-none"
+            className="absolute top-4 right-4 flex h-9 w-9 items-center justify-center rounded-full text-xl leading-none"
+            style={{ border: '1.5px solid #90c8f5', background: 'rgba(189,224,254,0.5)', color: '#3a7bbf' }}
           >
-            x
+            ✕
           </button>
 
-          <div className="border-neutral-cs-10/40 mb-5 overflow-hidden rounded-2xl border">
+          <div
+            className="mb-5 overflow-hidden rounded-2xl"
+            style={{ border: '2px solid #90c8f5' }}
+          >
             <Image src={ProfileImage} alt="Profile Image" className="h-120 w-full object-cover object-center" />
           </div>
 
           <div className="pr-10">
-            {/* UBAH NAMA ANDA */}
-            <h2 className="text-2xl font-black">Fiorellin Ilona</h2>
-            {/* UBAH NRP DAN ASAL */}
-            <p className="text-neutral-cs-10/70 mt-1 text-sm font-semibold">5027251082 - Surabaya</p>
+            <h2 className="text-2xl font-black" style={{ color: '#1a5fa8' }}>Fiorellin Ilona</h2>
+            <p className="mt-1 text-sm font-semibold" style={{ color: '#5a8fc4' }}>5027251082 - Surabaya</p>
           </div>
 
           <div className="mt-5 flex gap-2">
-            {/* UBAH USERNAME INSTAGRAM */}
             <Instagram username="llonaalin" />
-            {/* UBAH USERNAME LINKEDIN */}
             <LinkedInButtonLink username="fiorellin-ilona-27aa62343" />
           </div>
 
-          <div className="mt-6 grid gap-4 text-sm font-semibold sm:grid-cols-2">
-            <div className="border-neutral-cs-10/40 rounded-xl border p-4">
-              {/* UBAH HOBI KAMU */}
-              <p className="text-neutral-cs-10/60 text-xs tracking-wide uppercase">Hobi</p>
-              <p className="mt-2">Ngoding</p>
+          <div className="flex items-center gap-2 my-4">
+            <div style={{ flex: 1, height: 1, background: '#90c8f5' }} />
+            <span style={{ fontSize: 17 }}>🌸</span>
+            <div style={{ flex: 1, height: 1, background: '#90c8f5' }} />
+          </div>
+
+          <div className="grid gap-4 text-sm font-semibold sm:grid-cols-2">
+            <div className="rounded-xl p-4" style={{ background: 'rgba(189,224,254,0.35)', border: '1.5px solid #90c8f5' }}>
+              <p className="text-xs tracking-wide uppercase" style={{ color: '#3a7bbf' }}>🌼 Hobi</p>
+              <p className="mt-2" style={{ color: '#1a3a5c' }}>Ngoding</p>
             </div>
-            <div className="border-neutral-cs-10/40 rounded-xl border p-4">
-              {/* UBAH FUNFACT KAMU */}
-              <p className="text-neutral-cs-10/60 text-xs tracking-wide uppercase">Fun Fact</p>
-              <p className="mt-2">Gasuka Matcha, maaf ya kayak rumput</p>
+            <div className="rounded-xl p-4" style={{ background: 'rgba(189,224,254,0.35)', border: '1.5px solid #90c8f5' }}>
+              <p className="text-xs tracking-wide uppercase" style={{ color: '#3a7bbf' }}>🌼 Fun Fact</p>
+              <p className="mt-2" style={{ color: '#1a3a5c' }}>Gasuka Matcha, maaf ya kayak rumput</p>
             </div>
           </div>
 
-          <div className="border-neutral-cs-10/40 mt-4 rounded-xl border p-4">
-            {/* UBAH LAGU FAVORIT KAMU */}
-            <p className="text-neutral-cs-10/60 text-xs font-bold tracking-wide uppercase">Lagu Favorit</p>
-            <p className="my-2 text-sm font-semibold">Begini Begitu</p>
-            {/* UBAH URL SPOTIFY KAMU DENGAN LAGU FAVORIT MU */}
+          <div className="flex items-center gap-2 my-4">
+            <div style={{ flex: 1, height: 1, background: '#90c8f5' }} />
+            <span style={{ fontSize: 17 }}>🌸</span>
+            <div style={{ flex: 1, height: 1, background: '#90c8f5' }} />
+          </div>
+
+          <div className="rounded-xl p-4" style={{ background: 'rgba(189,224,254,0.35)', border: '1.5px solid #90c8f5' }}>
+            <p className="text-xs font-bold tracking-wide uppercase" style={{ color: '#3a7bbf' }}>🌼 Lagu Favorit</p>
+            <p className="my-2 text-sm font-semibold" style={{ color: '#1a3a5c' }}>Begini Begitu</p>
             <SpotifyEmbed spotifyUrl="https://open.spotify.com/track/4yTEKXWBDWoazJWrjii0Hk?si=_4_Cf81fTayf1AtP62Z1Mg" />
+          </div>
+
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 6, marginTop: 18, flexWrap: 'wrap' }}>
+            {[
+              { icon: '✦', size: 18, delay: '0s',   color: '#90c8f5' },
+              { icon: '✧', size: 13, delay: '0.2s', color: '#ffb3cc' },
+              { icon: '★', size: 20, delay: '0.4s', color: '#bde0fe' },
+              { icon: '✦', size: 13, delay: '0.6s', color: '#90c8f5' },
+              { icon: '🌸', size: 16, delay: '0.1s', color: '#ffb3cc' },
+              { icon: '✧', size: 13, delay: '0.5s', color: '#90c8f5' },
+              { icon: '★', size: 20, delay: '0.3s', color: '#bde0fe' },
+              { icon: '✦', size: 13, delay: '0.7s', color: '#ffb3cc' },
+              { icon: '✧', size: 18, delay: '0.9s', color: '#90c8f5' },
+            ].map((sp, i) => (
+              <span
+                key={i}
+                aria-hidden="true"
+                style={{
+                  display: 'inline-block',
+                  fontSize: sp.size,
+                  color: sp.color,
+                  animation: `coqTwinkle 1.6s ease-in-out ${sp.delay} infinite`,
+                }}
+              >
+                {sp.icon}
+              </span>
+            ))}
           </div>
         </div>
       </div>
